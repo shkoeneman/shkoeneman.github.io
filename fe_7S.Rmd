@@ -4,7 +4,7 @@ title: "Fire Emblem: 7 Siblings"
 
 <img src="media/title_big.png" style="width:50%">
 
-"Fire Emblem: 7 Siblings" is a romhack of "Fire Emblem: The Sacred Stones" for the GameBoy Advance. It features a fully custom campaign created by me, with many assets used provided by the FEUniverse community.
+"Fire Emblem: 7 Siblings" is a romhack of "Fire Emblem: The Sacred Stones" for the GameBoy Advance. It features a fully custom campaign created by me, with much support and many assets used provided by the FEUniverse community.
 
 <a href="https://feuniverse.us/t/fe8-fire-emblem-7-siblings-complete-let-the-feast-begin/5015">Link to FEUniverse page</a>
 

@@ -23,8 +23,11 @@ source("scripts/generate_mc_groups.R")
 #########################
 ### Run for this week ###
 #########################
+#Set attendees
 attendees <- c("Alex","Haley","Scott","Arianna","Jesse","Holly","Russ","Lauren","Sam","Bronson",
                   "Mike","Carol","Steve","Martin","Jordan","Tracy","Amanda","Tara","Kelsey","Amy","Matt")
+#Set seed for today to ensure replicability
+set.seed(as.integer(Sys.Date()))
 
 generate_mc_groups(attendees, all_dates)
 

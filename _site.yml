@@ -6,9 +6,9 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Generate MC Groups"
+    - text: "MC Groups"
       href: MC_Group_Generate.html
-    - text: "7 Siblings Game"
+    - text: "7 Siblings"
       href: fe_7S.html
   right:
     - icon: fa-github fa-lg

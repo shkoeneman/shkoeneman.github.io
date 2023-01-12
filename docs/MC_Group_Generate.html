@@ -255,10 +255,10 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="MC_Group_Generate.html">Generate MC Groups</a>
+  <a href="MC_Group_Generate.html">MC Groups</a>
 </li>
 <li>
-  <a href="fe_7S.html">7 Siblings Game</a>
+  <a href="fe_7S.html">7 Siblings</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -297,13 +297,16 @@ different groups, as this is one of the constraints of the problem.</p>
 <pre class="r"><code>#########################
 ### Run for this week ###
 #########################
+#Set attendees
 attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Arianna&quot;,&quot;Jesse&quot;,&quot;Holly&quot;,&quot;Russ&quot;,&quot;Lauren&quot;,&quot;Sam&quot;,&quot;Bronson&quot;,
                   &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordan&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;,&quot;Matt&quot;)
+#Set seed for today to ensure replicability
+set.seed(as.integer(Sys.Date()))
 
 generate_mc_groups(attendees, all_dates)</code></pre>
-<pre><code>## Group 1:  Alex Scott Russ Lauren Bronson Carol Tracy 
-## Group 2:  Sam Mike Steve Martin Jordan Kelsey Matt 
-## Group 3:  Haley Arianna Jesse Holly Amanda Tara Amy</code></pre>
+<pre><code>## Group 1:  Scott Russ Bronson Mike Martin Amy Matt 
+## Group 2:  Alex Holly Lauren Sam Carol Jordan Tracy 
+## Group 3:  Haley Arianna Jesse Steve Amanda Tara Kelsey</code></pre>
 </div>
 
 
