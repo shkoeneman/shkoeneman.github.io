@@ -2,9 +2,9 @@
 title: "Personal Projects Website"
 ---
 
-# Generate Groups for MC
+### Generate Groups for MC
 
-```{r, echo = FALSE, message=FALSE, warning = FALSE}
+```{r}
 
 generate_mc_groups <- function(attendees){
 
