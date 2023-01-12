@@ -20,7 +20,7 @@ Current Version: 1.5
 
 Note that saves from version 1.1 and earlier will not be compatible with version 1.2 of the game and beyond
 
-<a href="https://mgba.io/downloads.html">Download latest verstion of mGBA</a>
+<a href="https://mgba.io/downloads.html">Download latest version of mGBA</a>
 
 <a href="https://feuniverse.us/t/how-to-patch-a-rom-v5/10329">How to patch a ROM</a>
 
