@@ -1,4 +1,5 @@
 name: "scott-website"
+output_dir: docs
 navbar:
   title: "Scott's Personal Website"
   type: inverse
