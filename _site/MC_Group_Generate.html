@@ -11,7 +11,7 @@
 
 
 
-<title>Personal Projects Website</title>
+<title>Generate MC Groups</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -274,19 +274,34 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Personal Projects Website</h1>
+<h1 class="title toc-ignore">Generate MC Groups</h1>
 
 </div>
 
 
-<p>Hi, I’m Scott. I put little projects that I work on from time to time
-here.</p>
-<div id="project-list" class="section level1">
-<h1>Project List</h1>
-<div id="generate-mc-groups" class="section level3">
-<h3>Generate MC Groups</h3>
-<p>A little program to generate groups for MC.</p>
-</div>
+<div id="generate-groups-for-mc" class="section level3">
+<h3>Generate Groups for MC</h3>
+<p>Some code that generates groups for MC. It uses something akin to an
+adjacency matrix to weight pairings of people as less likely to occur in
+this iteration the more that they’ve occurred in previous
+iterations.</p>
+<p>The below output will generate three groups based on the algorithm
+I’ve devised and the current attendees. Not all possible groups of 3 are
+considered as this is a prohibitively large number of possibilities, but
+10,000 representative groupings are considered. Additionally, if Haley
+and Alex are both in attendance, then they are forced to be in different
+groups, as this is one of the constraints of the problem.</p>
+<pre class="r"><code>#########################
+### Run for this week ###
+#########################
+
+attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Arianna&quot;,&quot;Jesse&quot;,&quot;Holly&quot;,&quot;Russ&quot;,&quot;Lauren&quot;,&quot;Sam&quot;,&quot;Bronson&quot;,
+                  &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordan&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;,&quot;Matt&quot;)
+
+generate_mc_groups(attendees, all_dates)</code></pre>
+<pre><code>## Group 1:  Scott Arianna Jesse Lauren Steve Kelsey Amy 
+## Group 2:  Haley Holly Russ Bronson Martin Jordan Matt 
+## Group 3:  Alex Sam Mike Carol Tracy Amanda Tara</code></pre>
 </div>
 
 
