@@ -8,6 +8,8 @@ navbar:
       href: index.html
     - text: "Generate MC Groups"
       href: MC_Group_Generate.html
+    - text: "7 Siblings Game"
+      href: fe_7S.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/shkoeneman/
