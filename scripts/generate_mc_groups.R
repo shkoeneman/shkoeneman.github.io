@@ -92,7 +92,7 @@ generate_mc_groups <- function(attendees, all_dates, num_groups = 3){
   }
   list_of_groups <-vector("list",10000)
   for(l in 1:nrow(poss_combos)){
-    list_of_groups[[l]] <- gen_groups(poss_combos[l,],group_dat)
+    list_of_groups[[l]] <- gen_groups(poss_combos[l,],group_dat, num_groups = num_groups)
   }
   #Generate probabilities for each of these possible groups
   sum_adj_mat <- function(group_list, adj_mat){
