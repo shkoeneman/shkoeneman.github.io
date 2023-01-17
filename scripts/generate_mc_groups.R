@@ -19,7 +19,7 @@ generate_mc_groups <- function(attendees, all_dates){
                     "Carol",
                     "Steve",
                     "Martin",
-                    "Jordan",
+                    "Jordyn",
                     "Tracy",
                     "Amanda",
                     "Tara",
