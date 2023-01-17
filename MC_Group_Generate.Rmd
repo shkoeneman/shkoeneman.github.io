@@ -25,7 +25,7 @@ source("scripts/generate_mc_groups.R")
 #########################
 #Set attendees
 attendees <- c("Alex","Haley","Scott","Arianna","Jesse","Holly","Russ","Lauren","Sam","Bronson",
-                  "Mike","Carol","Steve","Martin","Jordan","Tracy","Amanda","Tara","Kelsey","Amy","Matt")
+                  "Mike","Carol","Steve","Martin","Jordyn","Tracy","Amanda","Tara","Kelsey","Amy","Matt")
 #Set seed for today to ensure replicability
 set.seed(as.integer(Sys.Date()))
 
