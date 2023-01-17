@@ -29,6 +29,6 @@ attendees <- c("Alex","Haley","Scott","Arianna","Jesse","Holly","Russ","Lauren",
 #Set seed for today to ensure replicability
 set.seed(as.integer(Sys.Date()))
 
-generate_mc_groups(attendees, all_dates, num_groups = 2)
+generate_mc_groups(attendees, all_dates, num_groups = 3)
 
 ```
