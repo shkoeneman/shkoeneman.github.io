@@ -32,7 +32,7 @@ Note that saves from version 1.1 and earlier will not be compatible with version
 
 ### Screenshots
 
-<img src="media/prologue_map.png"> <img src="media/arianna_shoot_monster.png">
+<img src="media/prologue_map.png">  <img src="media/arianna_shoot_monster.png">
 <img src="media/continent_art.png"> <img src="media/custom_nancy_anim.png">
 <img src="media/5x_gaiden_chapter.png"> <img src="media/will_fire.gif">
 

@@ -18,9 +18,5 @@ renv::load(project = "C:/Users/shkan/OneDrive/Documents/Personal/MC_Group_Pick/s
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/quarto/bin/tools")
 rmarkdown::render_site()
 
-######################
-### Push to GitHub ###
-######################
-
 
 
