@@ -295,8 +295,9 @@ attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Ari
                   &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordyn&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;,&quot;Matt&quot;)
 #Set seed for today to ensure replicability
 set.seed(as.integer(Sys.Date()))
-
-generate_mc_groups(attendees, all_dates, num_groups = 3)</code></pre>
+cat(&quot;Updated on: &quot;,as.character(Sys.Date()))</code></pre>
+<pre><code>## Updated on:  2023-01-25</code></pre>
+<pre class="r"><code>generate_mc_groups(attendees, all_dates, num_groups = 3)</code></pre>
 <pre><code>## Group  1 :  Alex Jesse Holly Sam Steve Tara Kelsey 
 ## Group  2 :  Haley Arianna Lauren Bronson Carol Tracy Amy 
 ## Group  3 :  Scott Russ Mike Martin Jordyn Amanda Matt</code></pre>
