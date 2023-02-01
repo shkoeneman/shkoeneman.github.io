@@ -282,10 +282,11 @@ adjacency matrix to weight pairings of people as less likely to occur in
 this iteration the more that they’ve occurred in previous
 iterations.</p>
 <p>The below output will generate three groups based on the algorithm
-I’ve devised and the current attendees. Not all possible groups of 3 are
-considered as this is a prohibitively large number of possibilities, but
-10,000 random representative groupings are considered. Additionally, if
-Haley and Alex are both in attendance, then they are forced to be in
+I’ve devised and the current attendees. Not all possible splits into 3
+groups are considered as this is a prohibitively large number of
+possibilities, but 10,000 random representative groupings are
+considered, with each appropriately probability weighted. Additionally,
+if Haley and Alex are both in attendance, then they are forced to be in
 different groups, as this is one of the constraints of the problem.</p>
 <pre class="r"><code>#########################
 ### Run for this week ###
@@ -296,11 +297,11 @@ attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Ari
 #Set seed for today to ensure replicability
 set.seed(as.integer(Sys.Date()))
 cat(&quot;Updated on: &quot;,as.character(Sys.Date()))</code></pre>
-<pre><code>## Updated on:  2023-01-25</code></pre>
+<pre><code>## Updated on:  2023-02-01</code></pre>
 <pre class="r"><code>generate_mc_groups(attendees, all_dates, num_groups = 3)</code></pre>
-<pre><code>## Group  1 :  Alex Jesse Holly Sam Steve Tara Kelsey 
-## Group  2 :  Haley Arianna Lauren Bronson Carol Tracy Amy 
-## Group  3 :  Scott Russ Mike Martin Jordyn Amanda Matt</code></pre>
+<pre><code>## Group  1 :  Alex Arianna Jesse Sam Bronson Jordyn Kelsey 
+## Group  2 :  Holly Russ Lauren Carol Martin Tara Matt 
+## Group  3 :  Haley Scott Mike Steve Tracy Amanda Amy</code></pre>
 </div>
 
 

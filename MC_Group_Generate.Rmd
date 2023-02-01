@@ -8,9 +8,9 @@ Some code that generates groups for MC. It uses something akin to an adjacency m
 as less likely to occur in this iteration the more that they've occurred in previous iterations.
 
 The below output will generate three groups based on the algorithm I've devised and the current attendees. Not all possible
-groups of 3 are considered as this is a prohibitively large number of possibilities, but 10,000 random representative groupings
-are considered. Additionally, if Haley and Alex are both in attendance, then they are forced to be in different groups, as
-this is one of the constraints of the problem.
+splits into 3 groups are considered as this is a prohibitively large number of possibilities, but 10,000 random representative groupings
+are considered, with each appropriately probability weighted. Additionally, if Haley and Alex are both in attendance, then they are forced
+to be in different groups, as this is one of the constraints of the problem.
 
 ```{r, echo = FALSE}
 #Source external files
