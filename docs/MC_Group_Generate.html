@@ -293,15 +293,15 @@ different groups, as this is one of the constraints of the problem.</p>
 #########################
 #Set attendees
 attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Arianna&quot;,&quot;Jesse&quot;,&quot;Holly&quot;,&quot;Russ&quot;,&quot;Lauren&quot;,&quot;Sam&quot;,&quot;Bronson&quot;,
-                  &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordyn&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;,&quot;Matt&quot;)
+                  &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordyn&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;)
 #Set seed for today to ensure replicability
 set.seed(as.integer(Sys.Date()))
 cat(&quot;Updated on: &quot;,as.character(Sys.Date()))</code></pre>
-<pre><code>## Updated on:  2023-02-08</code></pre>
+<pre><code>## Updated on:  2023-02-15</code></pre>
 <pre class="r"><code>generate_mc_groups(attendees, all_dates, num_groups = 3)</code></pre>
-<pre><code>## Group  1 :  Alex Lauren Bronson Steve Tracy Amanda Tara 
-## Group  2 :  Haley Arianna Jesse Russ Sam Carol Jordyn 
-## Group  3 :  Scott Holly Mike Martin Kelsey Amy Matt</code></pre>
+<pre><code>## Group  1 :  Scott Holly Bronson Martin Tracy Amanda Tara 
+## Group  2 :  Alex Arianna Lauren Mike Steve Jordyn Kelsey 
+## Group  3 :  Haley Jesse Russ Sam Carol Amy</code></pre>
 </div>
 
 

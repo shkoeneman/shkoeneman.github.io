@@ -8,5 +8,8 @@ all_dates <- list(
        c("Scott","Russ","Jordyn","Amanda")),
   list(c("Alex","Arianna","Jesse","Sam","Bronson"), #2/1/2023
        c("Holly","Russ","Lauren","Carol","Martin"),
-       c("Haley","Scott","Mike","Steve","Tracy","Amanda"))
+       c("Haley","Scott","Mike","Steve","Tracy","Amanda")),
+  list(c("Alex","Bronson","Steve","Tracy","Amanda","Tara"), #2/8/2023
+       c("Haley","Arianna","Jesse","Russ","Sam"),
+       c("Scott","Holly","Martin","Kelsey","Amy"))
 )

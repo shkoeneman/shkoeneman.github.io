@@ -24,8 +24,7 @@ generate_mc_groups <- function(attendees, all_dates, num_groups = 3){
                     "Amanda",
                     "Tara",
                     "Kelsey",
-                    "Amy",
-                    "Matt"
+                    "Amy"
   )
   members <- full_members[full_members %in% attendees]
   alex_haley_here <- ifelse("Alex" %in% members & "Haley" %in% members, TRUE, FALSE)
