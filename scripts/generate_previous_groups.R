@@ -11,5 +11,8 @@ all_dates <- list(
        c("Haley","Scott","Mike","Steve","Tracy","Amanda")),
   list(c("Alex","Bronson","Steve","Tracy","Amanda","Tara"), #2/8/2023
        c("Haley","Arianna","Jesse","Russ","Sam"),
-       c("Scott","Holly","Martin","Kelsey","Amy"))
+       c("Scott","Holly","Martin","Kelsey","Amy")),
+  list(c("Haley","Scott","Mike","Steve","Amy"), #3/1/2023
+       c("Arianna","Jesse","Lauren","Tracy","Tara"),
+       c("Alex","Holly","Russ","Carol","Martin"))
 )
