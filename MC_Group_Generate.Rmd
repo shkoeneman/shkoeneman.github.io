@@ -30,6 +30,6 @@ attendees <- c("Alex","Haley","Scott","Arianna","Jesse","Holly","Russ","Lauren",
 set.seed(as.integer(Sys.Date()))
 cat("Updated on: ",as.character(Sys.Date()))
 
-generate_mc_groups(attendees, all_dates, num_groups = 3)
+generate_mc_groups(attendees, all_dates, num_groups = 2)
 
 ```
