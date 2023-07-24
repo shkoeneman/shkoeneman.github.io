@@ -1,0 +1,94 @@
+---
+title: "Math Games"
+---
+
+### A Little Number Game
+
+Source: https://twitter.com/NeilShenvi/status/1682736373118255104
+
+Problem Summary: I choose an integer between 1-100. You try to guess it using as few questions as possible by asking either:
+
+#1 "Is the number > 20?"
+or
+#2 "Is the number X?" (you can ask this many times using different Xs)
+
+Should you ask #1 and then ask #2 repeatedly?
+
+The solution provided by the asker involved game theory, but I approached the problem purely from the standpoint of the initial
+random number being a discrete uniform random variable take the value of an integer from 1 to 100.
+
+Based on my empirical simulations below, the expected value of the number of questions to reach the true number using each method (asking #1 first and then repeatedly asking #2 vs. only asking #2 from the outset) seems to be equal, as well as the median and variance.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+#Neil Shenvi's math game
+
+#Set seed for replicability, and number of simulation iterations
+set.seed(7232023)
+sim_iters <- 10000000
+
+#Strategy 1 - Ask whether number is <= 20, then guess numbers
+guesses <- numeric(sim_iters)
+for(i in 1:sim_iters){
+  iter_guess <- 0
+  cands <- 1:100
+  correct <- FALSE
+  #Draw number
+  number <- sample(cands,1)
+  #Ask first question
+  if(number <= 20){
+    cands <- 1:20
+  } else{
+    cands <- 21:100
+  }
+  iter_guess <- iter_guess + 1
+  #Now repeatedly make random guesses
+  while(!correct){
+    #Get guess
+    num_guess <- sample(cands,1)
+    iter_guess <- iter_guess + 1
+    #See if it's correct
+    correct <- (num_guess == number)
+    #Remove it from consideration
+    cands <- cands[cands != num_guess]
+  }
+  #Record result
+  guesses[i] <- num_guess
+}
+#Summary statistics
+cat("Empirical mean number of guesses for ", sim_iters," iterations is ",mean(guesses),"\n")
+cat("Empirical variance of number of guesses for ", sim_iters," iterations is ",var(guesses),"\n")
+cat("Empirical median number of guesses for ", sim_iters," iterations is ",median(guesses),"\n")
+
+#Strategy 2 - Just guess numbers
+guesses <- numeric(sim_iters)
+for(i in 1:sim_iters){
+  iter_guess <- 0
+  cands <- 1:100
+  correct <- FALSE
+  #Draw number
+  number <- sample(cands,1)
+  #Now repeatedly make random guesses
+  while(!correct){
+    #Get guess
+    num_guess <- sample(cands,1)
+    iter_guess <- iter_guess + 1
+    #See if it's correct
+    correct <- (num_guess == number)
+    #Remove it from consideration
+    cands <- cands[cands != num_guess]
+  }
+  #Record result
+  guesses[i] <- num_guess
+}
+#Summary statistics
+cat("Empirical mean number of guesses for ", sim_iters," iterations is ",mean(guesses),"\n")
+cat("Empirical variance of number of guesses for ", sim_iters," iterations is ",var(guesses),"\n")
+cat("Empirical median number of guesses for ", sim_iters," iterations is ",median(guesses),"\n")
+
+
+
+```

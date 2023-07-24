@@ -12,7 +12,10 @@ Hi, I'm Scott. I put little projects that I work on from time to time here.
 
 A little program to generate groups for MC.
 
-
 ### Fire Emblem: 7 Siblings
 
 This is a fully custom, complete romhack of "Fire Emblem: The Sacred Stones" that I've created.
+
+### Math Games 
+
+A place to put little quirky math problems.

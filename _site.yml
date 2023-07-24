@@ -10,6 +10,8 @@ navbar:
       href: MC_Group_Generate.html
     - text: "7 Siblings"
       href: fe_7S.html
+    - text: "Math Games"
+      href: Math_Game.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/shkoeneman/

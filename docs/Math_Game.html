@@ -11,7 +11,7 @@
 
 
 
-<title>Generate MC Groups</title>
+<title>Math Games</title>
 
 <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -273,37 +273,98 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Generate MC Groups</h1>
+<h1 class="title toc-ignore">Math Games</h1>
 
 </div>
 
 
-<div id="generate-groups-for-mc" class="section level3">
-<h3>Generate Groups for MC</h3>
-<p>Some code that generates groups for MC. It uses something akin to an
-adjacency matrix to weight pairings of people as less likely to occur in
-this iteration the more that they’ve occurred in previous
-iterations.</p>
-<p>The below output will generate three groups based on the algorithm
-I’ve devised and the current attendees. Not all possible splits into 3
-groups are considered as this is a prohibitively large number of
-possibilities, but 10,000 random representative groupings are
-considered, with each appropriately probability weighted. Additionally,
-if Haley and Alex are both in attendance, then they are forced to be in
-different groups, as this is one of the constraints of the problem.</p>
-<pre class="r"><code>#########################
-### Run for this week ###
-#########################
-#Set attendees
-attendees &lt;- c(&quot;Alex&quot;,&quot;Haley&quot;,&quot;Scott&quot;,&quot;Arianna&quot;,&quot;Jesse&quot;,&quot;Holly&quot;,&quot;Russ&quot;,&quot;Lauren&quot;,&quot;Sam&quot;,&quot;Bronson&quot;,
-                  &quot;Mike&quot;,&quot;Carol&quot;,&quot;Steve&quot;,&quot;Martin&quot;,&quot;Jordyn&quot;,&quot;Tracy&quot;,&quot;Amanda&quot;,&quot;Tara&quot;,&quot;Kelsey&quot;,&quot;Amy&quot;)
-#Set seed for today to ensure replicability
-set.seed(as.integer(Sys.Date()))
-cat(&quot;Updated on: &quot;,as.character(Sys.Date()))</code></pre>
-<pre><code>## Updated on:  2023-07-24</code></pre>
-<pre class="r"><code>generate_mc_groups(attendees, all_dates, num_groups = 2)</code></pre>
-<pre><code>## Group  1 :  Alex Arianna Jesse Holly Russ Bronson Mike Martin Tara Kelsey 
-## Group  2 :  Haley Scott Lauren Sam Carol Steve Jordyn Tracy Amanda Amy</code></pre>
+<div id="a-little-number-game" class="section level3">
+<h3>A Little Number Game</h3>
+<p>Source: <a
+href="https://twitter.com/NeilShenvi/status/1682736373118255104"
+class="uri">https://twitter.com/NeilShenvi/status/1682736373118255104</a></p>
+<p>Problem Summary: I choose an integer between 1-100. You try to guess
+it using as few questions as possible by asking either:</p>
+<p>#1 “Is the number &gt; 20?” or #2 “Is the number X?” (you can ask
+this many times using different Xs)</p>
+<p>Should you ask #1 and then ask #2 repeatedly?</p>
+<p>The solution provided by the asker involved game theory, but I
+approached the problem purely from the standpoint of the initial random
+number being a discrete uniform random variable take the value of an
+integer from 1 to 100.</p>
+<p>Based on my empirical simulations below, the expected value of the
+number of questions to reach the true number using each method (asking
+#1 first and then repeatedly asking #2 vs. only asking #2 from the
+outset) seems to be equal, as well as the median and variance.</p>
+<pre class="r"><code>#Neil Shenvi&#39;s math game
+
+#Set seed for replicability, and number of simulation iterations
+set.seed(7232023)
+sim_iters &lt;- 10000000
+
+#Strategy 1 - Ask whether number is &lt;= 20, then guess numbers
+guesses &lt;- numeric(sim_iters)
+for(i in 1:sim_iters){
+  iter_guess &lt;- 0
+  cands &lt;- 1:100
+  correct &lt;- FALSE
+  #Draw number
+  number &lt;- sample(cands,1)
+  #Ask first question
+  if(number &lt;= 20){
+    cands &lt;- 1:20
+  } else{
+    cands &lt;- 21:100
+  }
+  iter_guess &lt;- iter_guess + 1
+  #Now repeatedly make random guesses
+  while(!correct){
+    #Get guess
+    num_guess &lt;- sample(cands,1)
+    iter_guess &lt;- iter_guess + 1
+    #See if it&#39;s correct
+    correct &lt;- (num_guess == number)
+    #Remove it from consideration
+    cands &lt;- cands[cands != num_guess]
+  }
+  #Record result
+  guesses[i] &lt;- num_guess
+}
+#Summary statistics
+cat(&quot;Empirical mean number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,mean(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical mean number of guesses for  1e+07  iterations is  50.49238</code></pre>
+<pre class="r"><code>cat(&quot;Empirical variance of number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,var(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical variance of number of guesses for  1e+07  iterations is  833.1384</code></pre>
+<pre class="r"><code>cat(&quot;Empirical median number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,median(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical median number of guesses for  1e+07  iterations is  50</code></pre>
+<pre class="r"><code>#Strategy 2 - Just guess numbers
+guesses &lt;- numeric(sim_iters)
+for(i in 1:sim_iters){
+  iter_guess &lt;- 0
+  cands &lt;- 1:100
+  correct &lt;- FALSE
+  #Draw number
+  number &lt;- sample(cands,1)
+  #Now repeatedly make random guesses
+  while(!correct){
+    #Get guess
+    num_guess &lt;- sample(cands,1)
+    iter_guess &lt;- iter_guess + 1
+    #See if it&#39;s correct
+    correct &lt;- (num_guess == number)
+    #Remove it from consideration
+    cands &lt;- cands[cands != num_guess]
+  }
+  #Record result
+  guesses[i] &lt;- num_guess
+}
+#Summary statistics
+cat(&quot;Empirical mean number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,mean(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical mean number of guesses for  1e+07  iterations is  50.50211</code></pre>
+<pre class="r"><code>cat(&quot;Empirical variance of number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,var(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical variance of number of guesses for  1e+07  iterations is  833.3137</code></pre>
+<pre class="r"><code>cat(&quot;Empirical median number of guesses for &quot;, sim_iters,&quot; iterations is &quot;,median(guesses),&quot;\n&quot;)</code></pre>
+<pre><code>## Empirical median number of guesses for  1e+07  iterations is  51</code></pre>
 </div>
 
 
